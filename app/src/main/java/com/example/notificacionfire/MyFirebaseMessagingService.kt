@@ -24,8 +24,6 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
     }
 
-
-
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         // Aquí se debe manejar la recepción del mensaje
         // y mostrar una notificación en la aplicación

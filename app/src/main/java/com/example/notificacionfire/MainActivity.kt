@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     companion object {
         var token: String = ""
     }
-        override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         // Recupera el valor de la variable global desde las preferencias compartidas
@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity() {
         val cuerpo = findViewById<EditText>(R.id.cuerpo)
         //cuando de click
         btn_env.setOnClickListener{
-
             enviarTokenAServidor(token, titulo.text.toString(), cuerpo.text.toString())
         }
     }
@@ -45,12 +44,14 @@ class MainActivity : AppCompatActivity() {
                 .add("cuerpo", cuerpo)
                 .build()
             val request = Request.Builder()
-                .url("http://192.168.8.15:3000/registerToken")
+                .url("http://192.168.1.11:3000/registerToken")
                 .post(requestBody)
                 .build()
             client.newCall(request).execute()
         }
     }
+
+
     override fun onPause() {
         super.onPause()
 
